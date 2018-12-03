@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectEdit" xmlns="sap.m">
+    <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Edit project" type="Standard" verticalScrolling="true">
+        <content>
+            <List mode="None" width="auto" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMargin">
+                <infoToolbar/>
+                <headerToolbar/>
+                <items>
+                    <InputListItem label="Project name" visible="true">
+                        <content>
+                            <Input placeholder="Project name" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Start date" visible="true">
+                        <content>
+                            <Input placeholder="Project name" type="Date" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="End date" visible="true">
+                        <content>
+                            <Input placeholder="Project name" type="Date" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Category" visible="true">
+                        <content>
+                            <Input placeholder="Catergory" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                </items>
+            </List>
+            <TextArea rows="5" placeholder="Project description" cols="50" maxLength="0" wrapping="None" enabled="true" visible="true" class="sapUiSmallMargin"/>
+            <List mode="None" width="auto" headerText="Project members" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMargin">
+                <infoToolbar/>
+                <headerToolbar/>
+                <items>
+                    <InputListItem label="Name" visible="true">
+                        <content>
+                            <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                <items>
+                                    <core:Item text="Item 1" enabled="true" key="Item 1"/>
+                                    <core:Item text="Item 2" enabled="true" key="Item 2"/>
+                                    <core:Item text="Item 3" enabled="true" key="Item 3"/>
+                                </items>
+                            </ComboBox>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Role" visible="true">
+                        <content>
+                            <Input placeholder="Role" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                </items>
+            </List>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Save" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>
