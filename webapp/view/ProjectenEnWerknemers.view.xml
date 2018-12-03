@@ -1,0 +1,171 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers" xmlns="sap.m" xmlns:layout1="sap.ui.commons.layout">
+    <Page showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
+        <content>
+            <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout1:positions>
+                    <layout1:PositionContainer left="0px" top="0px">
+                        <layout1:control>
+                            <IconTabBar expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false" visible="true" selectedKey="Ok">
+                                <items>
+                                    <IconTabFilter icon="sap-icon://document-text" iconColor="Positive" text="Projects" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+                                        <content>
+                                            <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+                                                <infoToolbar>
+                                                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                        <content>
+                                                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </content>
+                                                    </Toolbar>
+                                                </infoToolbar>
+                                                <headerToolbar>
+                                                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                                                        <content>
+                                                            <Title text="Projects (2)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <ToolbarSpacer width=""/>
+                                                            <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
+                                                            <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
+                                                            <OverflowToolbarButton text="Filter" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Filter" iconDensityAware="false"/>
+                                                            <OverflowToolbarButton text="Add" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Add" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>
+                                                            <OverflowToolbarButton text="Settings" type="Transparent" icon="sap-icon://action-settings" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Settings" iconDensityAware="false"/>
+                                                        </content>
+                                                    </OverflowToolbar>
+                                                </headerToolbar>
+                                                <columns>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="Project name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="Start date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="End date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="Status" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                </columns>
+                                                <items>
+                                                    <ColumnListItem type="Navigation" press="_onRowPress">
+                                                        <cells>
+                                                            <Text text="Project Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <DatePicker value="20181126" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <DatePicker value="20181130" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <ObjectStatus text="Complete" state="Success" visible="true"/>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem type="Navigation">
+                                                        <cells>
+                                                            <Text text="Project Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <DatePicker value="20181113" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <DatePicker value="20181130" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <ObjectStatus text="Pending" state="Warning" visible="true"/>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                </items>
+                                            </Table>
+                                        </content>
+                                    </IconTabFilter>
+                                    <IconTabSeparator icon="" iconDensityAware="false"/>
+                                    <IconTabFilter icon="sap-icon://wounds-doc" iconColor="Positive" text="employees" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+                                        <content>
+                                            <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+                                                <infoToolbar>
+                                                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                        <content>
+                                                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </content>
+                                                    </Toolbar>
+                                                </infoToolbar>
+                                                <headerToolbar>
+                                                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                                                        <content>
+                                                            <Title text="Employees (3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <ToolbarSpacer width=""/>
+                                                            <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
+                                                            <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
+                                                            <OverflowToolbarButton text="Filter" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Filter" iconDensityAware="false"/>
+                                                            <OverflowToolbarButton text="Add" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Add" iconDensityAware="false" press="_onOverflowToolbarButtonPress1"/>
+                                                            <OverflowToolbarButton text="Settings" type="Transparent" icon="sap-icon://action-settings" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Settings" iconDensityAware="false"/>
+                                                        </content>
+                                                    </OverflowToolbar>
+                                                </headerToolbar>
+                                                <columns>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="Firstname" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="Lastname" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                        <header>
+                                                            <Text text="Job title" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </header>
+                                                        <footer/>
+                                                    </Column>
+                                                </columns>
+                                                <items>
+                                                    <ColumnListItem type="Navigation" press="_onRowPress1">
+                                                        <cells>
+                                                            <Text text="Dayan" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="Trabanco" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="Manager" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem type="Navigation">
+                                                        <cells>
+                                                            <Text text="Katrien" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="Van Melle" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="Developer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem type="Navigation">
+                                                        <cells>
+                                                            <Text text="Adolphe" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="Mk" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="Program Manager" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                </items>
+                                            </Table>
+                                        </content>
+                                    </IconTabFilter>
+                                </items>
+                                <content/>
+                            </IconTabBar>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                </layout1:positions>
+            </layout1:AbsoluteLayout>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

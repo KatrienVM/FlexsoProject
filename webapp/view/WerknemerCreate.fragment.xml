@@ -1,0 +1,86 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.WerknemerCreate" xmlns="sap.m">
+    <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Create employee" type="Standard" verticalScrolling="true" afterClose="_onDialogAfterClose">
+        <content>
+            <List mode="None" width="auto" headerText="" footerText="" backgroundDesign="Solid" showSeparators="None" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMargin">
+                <infoToolbar/>
+                <headerToolbar/>
+                <items>
+                    <InputListItem label="Firstname" visible="true">
+                        <content>
+                            <Input placeholder="Firstname" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Lastname" visible="true">
+                        <content>
+                            <Input placeholder="Lastname" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Phone number" visible="true">
+                        <content>
+                            <Input placeholder="Phone number" type="Tel" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Email" visible="true">
+                        <content>
+                            <Input placeholder="Email" type="Email" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Job title" visible="true">
+                        <content>
+                            <Input placeholder="Job title" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                </items>
+            </List>
+            <List mode="None" width="auto" headerText="Address" footerText="" backgroundDesign="Solid" showSeparators="None" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMargin">
+                <infoToolbar/>
+                <headerToolbar/>
+                <items>
+                    <InputListItem label="Street" visible="true">
+                        <content>
+                            <Input placeholder="Street" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Number" visible="true">
+                        <content>
+                            <Input placeholder="Number" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Box number" visible="true">
+                        <content>
+                            <Input placeholder="Box number" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Postal code" visible="true">
+                        <content>
+                            <Input placeholder="Postcode" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="City" visible="true">
+                        <content>
+                            <Input placeholder="City" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Province" visible="true">
+                        <content>
+                            <Input placeholder="Province" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                    <InputListItem label="Country" visible="true">
+                        <content>
+                            <Input placeholder="Country" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                        </content>
+                    </InputListItem>
+                </items>
+            </List>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Create" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>
