@@ -229,7 +229,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("WerknemerDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-
+			
 		}
 	});
 }, /* bExport= */ true);
