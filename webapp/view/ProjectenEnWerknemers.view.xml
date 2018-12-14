@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers" xmlns="sap.m" xmlns:layout1="sap.ui.commons.layout">
-    <Page showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
+   <Page showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
         <content>
             <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
                 <layout1:positions>
@@ -9,7 +9,12 @@
                                 <items>
                                     <IconTabFilter icon="sap-icon://document-text" iconColor="Positive" text="Projects" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
                                         <content>
-                                            <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+                                            <Table id="table2" 
+                                        			items="{
+													path: '/YXM_089_PROJODATASet'
+													}"
+													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+													updateFinished="onUpdateFinished" width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
                                                 <infoToolbar>
                                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                                                         <content>
@@ -59,28 +64,26 @@
                                                 <items>
                                                     <ColumnListItem type="Navigation" press="_onRowPress">
                                                         <cells>
-                                                            <Text text="Project Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <DatePicker value="20181126" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
-                                                            <DatePicker value="20181130" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
-                                                            <ObjectStatus text="Complete" state="Success" visible="true"/>
+                                                            <Text text="{ProjectName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <DatePicker value="{StartDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <DatePicker value="{EndDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            
                                                         </cells>
                                                     </ColumnListItem>
-                                                    <ColumnListItem type="Navigation">
-                                                        <cells>
-                                                            <Text text="Project Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <DatePicker value="20181113" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
-                                                            <DatePicker value="20181130" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
-                                                            <ObjectStatus text="Pending" state="Warning" visible="true"/>
-                                                        </cells>
-                                                    </ColumnListItem>
-                                                </items>
+                                               </items>
                                             </Table>
                                         </content>
                                     </IconTabFilter>
                                     <IconTabSeparator icon="" iconDensityAware="false"/>
                                     <IconTabFilter icon="sap-icon://wounds-doc" iconColor="Positive" text="employees" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
                                         <content>
-                                            <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+                                            <Table id="table" 
+                                        			items="{
+													path: 'Emp>/yxm_110_empcdsSet'
+													}"
+													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+													updateFinished="onUpdateFinished"
+													width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
                                                 <infoToolbar>
                                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                                                         <content>
@@ -91,7 +94,7 @@
                                                 <headerToolbar>
                                                     <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
                                                         <content>
-                                                            <Title text="Employees (3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <Title id="tableHeader" text="{worklistView>/worklistTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
                                                             <ToolbarSpacer width=""/>
                                                             <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
                                                             <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
@@ -124,26 +127,12 @@
                                                 <items>
                                                     <ColumnListItem type="Navigation" press="_onRowPress1">
                                                         <cells>
-                                                            <Text text="Dayan" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="Trabanco" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="Manager" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="{Emp>FirstName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="{Emp>LastName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="{Emp>JobTitle}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                         </cells>
                                                     </ColumnListItem>
-                                                    <ColumnListItem type="Navigation">
-                                                        <cells>
-                                                            <Text text="Katrien" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="Van Melle" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="Developer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                        </cells>
-                                                    </ColumnListItem>
-                                                    <ColumnListItem type="Navigation">
-                                                        <cells>
-                                                            <Text text="Adolphe" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="Mk" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="Program Manager" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                        </cells>
-                                                    </ColumnListItem>
-                                                </items>
+                                        		</items>
                                             </Table>
                                         </content>
                                     </IconTabFilter>

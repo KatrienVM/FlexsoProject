@@ -8,14 +8,39 @@
 		"applicationVersion": {
 			"version": "1.2.2"
 		},
-		"dataSources": {},
+		"dataSources": {
+			"YXM_110_MEA_EMP_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EMP_SRV/metadata.xml"
+				}
+			},
+			"YXM_089_MAE_PROJ_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_089_MAE_PROJ_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_089_MAE_PROJ_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_INHAB_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_INHAB_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_INHAB_SRV/metadata.xml"
+				}
+			}
+		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"ach": "ach",
 		"resources": "resources.json",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.32.0"
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
 		}
 	},
 	"sap.ui": {
@@ -57,6 +82,37 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_089_MAE_PROJ_SRV",
+				"preload": true
+			},
+			"Emp": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_EMP_SRV",
+				"preload": true
+			},
+			"Inhab": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_INHAB_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_INHAB_SRV",
+				"preload": true
 			}
 		},
 		"resources": {
@@ -118,7 +174,7 @@
 					"pattern": "",
 					"name": "default",
 					"target": [
-						"ProjectDetail"
+						"ProjectenEnWerknemers"
 					]
 				},
 				{
