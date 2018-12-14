@@ -126,7 +126,7 @@
                                                 </columns>
                                                 <items>
                                                     <ColumnListItem type="Navigation" press="_onRowPress1">
-                                                        <cells>
+                                                        <cells> 
                                                             <Text text="{Emp>FirstName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                             <Text text="{Emp>LastName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                             <Text text="{Emp>JobTitle}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
