@@ -1,0 +1,16 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="en"
+			sap:schema-version="1" Namespace="YXM_110_MEA_EVAL_SRV">
+			<EntityType sap:content-version="1" Name="evaluations">
+				<Key><PropertyRef Name="EmployeeId"/><PropertyRef Name="ProjectId"/></Key><Property Name="EmployeeId" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Number"
+					Nullable="false" Type="Edm.Int32"/><Property Name="ProjectId" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Number"
+					Nullable="false" Type="Edm.Int32"/><Property Name="Timestamp" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Time Stamp"
+					Nullable="false" Type="Edm.String" MaxLength="14"/><Property Name="Rating" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Int."
+					Nullable="false" Type="Edm.Byte"/><Property Name="Description" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Char255"
+					Nullable="false" Type="Edm.String" MaxLength="255"/></EntityType>
+			<EntityContainer Name="YXM_110_MEA_EVAL_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true"><EntitySet sap:content-version="1" Name="evaluationsSet" sap:updatable="false" sap:creatable="false"
+				EntityType="YXM_110_MEA_EVAL_SRV.evaluations" sap:pageable="false" sap:deletable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/sap/YXM_110_MEA_EVAL_SRV/$metadata" rel="self"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/sap/YXM_110_MEA_EVAL_SRV/$metadata" rel="latest-version"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

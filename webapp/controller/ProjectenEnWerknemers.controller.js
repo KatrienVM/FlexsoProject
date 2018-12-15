@@ -1,9 +1,11 @@
-sap.ui.define(["sap/ui/core/mvc/Controller",
+sap.ui.define(["../controller/BaseController",
+//sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./CreateProject", "./WerknemerCreate",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, CreateProject, WerknemerCreate, Utilities, History) {
+	"sap/ui/core/routing/History",
+		"sap/ui/model/json/JSONModel"
+], function(BaseController, MessageBox, CreateProject, WerknemerCreate, Utilities, History, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers", {
@@ -157,10 +159,71 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			});
 
 		},
+		
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("ProjectenEnWerknemers").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+			
+					var oViewModel,
+					iOriginalBusyDelay,
+					oTable = this.byId("table_emp");
 
-		}
+				// Put down worklist table's original value for busy indicator delay,
+				// so it can be restored later on. Busy handling on the table is
+				// taken care of by the table itself.
+				iOriginalBusyDelay = oTable.getBusyIndicatorDelay();
+				// keeps the search state
+				this._aTableSearchState = [];
+
+				// Model used to manipulate control states
+				oViewModel = new JSONModel({
+					EmpTableTitle : this.getResourceBundle().getText("EmpTableTitle"),
+					ProjTableTitle : this.getResourceBundle().getText("ProjTableTitle"),
+					tableBusyDelay : 0
+				});
+				this.setModel(oViewModel, "worklistView");
+
+				// Make sure, busy indication is showing immediately so there is no
+				// break after the busy indication for loading the view's meta data is
+				// ended (see promise 'oWhenMetadataIsLoaded' in AppController)
+				oTable.attachEventOnce("updateFinished", function(){
+					// Restore original busy indicator delay for worklist's table
+					oViewModel.setProperty("/tableBusyDelay", iOriginalBusyDelay);
+				});
+		},
+		
+		onUpdateFinished : function (oEvent) {
+				// update the worklist's object counter after the table update
+				var sTitle,
+					oTable = oEvent.getSource(),
+					iTotalItems = oEvent.getParameter("total");
+				// only update the counter if the length is final and
+				// the table is not empty
+				if (iTotalItems && oTable.getBinding("items").isLengthFinal()) {
+					sTitle = this.getResourceBundle().getText("EmpTableTitleCount", [iTotalItems]);
+			
+				} else {
+					sTitle = this.getResourceBundle().getText("EmpTableTitle");
+		
+				}
+				this.getModel("worklistView").setProperty("/EmpTableTitle", sTitle);
+			},
+			
+				onUpdateFinished1 : function (oEvent) {
+				// update the worklist's object counter after the table update
+				var sTitle,
+					oTable = oEvent.getSource(),
+					iTotalItems = oEvent.getParameter("total");
+				// only update the counter if the length is final and
+				// the table is not empty
+				if (iTotalItems && oTable.getBinding("items").isLengthFinal()) {
+					sTitle = this.getResourceBundle().getText("ProjTableTitleCount", [iTotalItems]);
+				} else {
+					sTitle = this.getResourceBundle().getText("ProjTableTitle");
+
+				}
+				this.getModel("worklistView").setProperty("/ProjTableTitle", sTitle);
+			}
+		
 	});
 }, /* bExport= */ true);

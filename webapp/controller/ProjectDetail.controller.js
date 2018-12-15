@@ -2,11 +2,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./ProjectEdit", "./CreateEvaluation", "./AddTeammember",
 	"./utilities",
+	"../model/formatter",
 	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, ProjectEdit, CreateEvaluation, AddTeammember, Utilities, History) {
+], function(BaseController, MessageBox, ProjectEdit, CreateEvaluation, AddTeammember, Utilities, History, formatter) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectDetail", {
+			formatter: formatter,
 		handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 

@@ -149,7 +149,14 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection title="Evaluation">
                         <uxap:blocks>
-                            <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                            <Table 
+                            	id="table_eval" 
+                                items="{
+								path: 'Eval>/evaluationsSet'
+								}"
+								busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+								updateFinished="onUpdateFinished"
+                            	width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
                                 <infoToolbar>
                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                                         <content>
@@ -195,10 +202,10 @@
                                 <items>
                                     <ColumnListItem type="Navigation" press="_onRowPress1">
                                         <cells>
-                                            <Text text="Dayan Trabanco" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                            <Text text="30/10/2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                            <Text text="Perfect" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                            <Text text="5/5" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{Eval>EmployeeId}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{Eval>Timestamp}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{Eval>Description}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{Eval>Rating}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                         </cells>
                                     </ColumnListItem>
                                 </items>

@@ -10,12 +10,12 @@
                                     <IconTabFilter icon="sap-icon://document-text" iconColor="Positive" text="Projects" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
                                         <content>
                                             <Table
-                                            	 id="table1" 
+                                            	 id="table_proj" 
                                         			items="{
 													path: 'Proj>/YXM_089_PROJODATASet'
 													}"
 													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
-													updateFinished="onUpdateFinished"
+													updateFinished="onUpdateFinished1"
                                             width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
                                                 <infoToolbar>
                                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
@@ -27,7 +27,7 @@
                                                 <headerToolbar>
                                                     <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
                                                         <content>
-                                                            <Title text="Projects (2)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <Title id="tableHead" text="{worklistView>/ProjTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
                                                             <ToolbarSpacer width=""/>
                                                             <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
                                                             <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
@@ -79,7 +79,7 @@
                                     <IconTabSeparator icon="" iconDensityAware="false"/>
                                     <IconTabFilter icon="sap-icon://wounds-doc" iconColor="Positive" text="employees" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
                                         <content>
-                                            <Table id="table" 
+                                            <Table id="table_emp" 
                                         			items="{
 													path: '/yxm_110_empcdsSet'
 													}"
@@ -96,7 +96,7 @@
                                                 <headerToolbar>
                                                     <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
                                                         <content>
-                                                            <Title id="tableHeader" text="{worklistView>/worklistTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <Title id="tableHeader" text="{worklistView>/EmpTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
                                                             <ToolbarSpacer width=""/>
                                                             <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
                                                             <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
