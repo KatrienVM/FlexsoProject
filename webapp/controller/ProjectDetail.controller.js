@@ -23,7 +23,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			oView = this.getView();
 
 			oView.bindElement({
-				path : "/YXM_089_PROJODATASet(" + oArgs.projId + ")",
+				path : "Proj>/YXM_089_PROJODATASet(" + oArgs.Id + ")",
 				events : {
 					change: this._onBindingChange.bind(this),
 					dataRequested: function (oEvent) {
@@ -77,7 +77,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			}
 
 		},*/
-		/*_onFioriObjectPageHeaderPress: function() {
+		_onFioriObjectPageHeaderPress: function() {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 			var oQueryParams = this.getQueryParameters(window.location);
@@ -259,6 +259,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				}
 			});
 
-		}*/
+		}
 	});
 }, /* bExport= */ true);

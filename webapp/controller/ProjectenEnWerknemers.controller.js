@@ -22,7 +22,7 @@ sap.ui.define(["../controller/BaseController",
 			oItem = oEvent.getSource();
 			oCtx = oItem.getBindingContext();
 			this.getRouter().navTo("ProjectDetail",{
-				projId : oCtx.getProperty("Id")
+				Id : oCtx.getProperty("Id")
 			});
 		},
 		

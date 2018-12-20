@@ -186,7 +186,7 @@
 			},
 			"routes": [
 				{
-					"pattern": "ProjectDetail/{projId}",
+					"pattern": "ProjectDetail/{Id}",
 					"name": "ProjectDetail",
 					"target": [
 						"ProjectDetail"
