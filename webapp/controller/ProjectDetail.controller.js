@@ -3,13 +3,45 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"./ProjectEdit", "./CreateEvaluation", "./AddTeammember",
 	"./utilities",
 	"../model/formatter",
-	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, ProjectEdit, CreateEvaluation, AddTeammember, Utilities, History, formatter) {
+	"sap/ui/core/routing/History",
+		"sap/ui/model/json/JSONModel",
+], function(BaseController, MessageBox, ProjectEdit, CreateEvaluation, AddTeammember, Utilities, History, formatter, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectDetail", {
-			formatter: formatter,
-		handleRouteMatched: function(oEvent) {
+		formatter: formatter,
+			onInit: function () {
+			/*	this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			this.oRouter.getTarget("ProjectDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));*/
+			
+			var oRouter = this.getRouter();
+			oRouter.getRoute("ProjectDetail").attachMatched(this._onRouteMatched, this);
+		},
+		_onRouteMatched : function (oEvent) {
+			var oArgs, oView;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+
+			oView.bindElement({
+				path : "/YXM_089_PROJODATASet(" + oArgs.projId + ")",
+				events : {
+					change: this._onBindingChange.bind(this),
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			});
+		},
+		_onBindingChange : function (oEvent) {
+			// No data for the binding
+			if (!this.getView().getBindingContext()) {
+				this.getRouter().getTargets().display("notFound");
+			}
+		},
+		/*handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 
 			var oParams = {};
@@ -44,8 +76,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject(oPath);
 			}
 
-		},
-		_onFioriObjectPageHeaderPress: function() {
+		},*/
+		/*_onFioriObjectPageHeaderPress: function() {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 			var oQueryParams = this.getQueryParameters(window.location);
@@ -227,11 +259,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				}
 			});
 
-		},
-		onInit: function() {
-			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("ProjectDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-
-		}
+		}*/
 	});
 }, /* bExport= */ true);

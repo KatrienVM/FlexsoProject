@@ -1,14 +1,20 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.WerknemerDetail" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
-    <uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="true" class="sapUiSizeCompact">
+    <uxap:ObjectPageLayout 
+    
+    showTitleInHeaderContent="false" 
+    showHeaderContent="true" 
+    showEditHeaderButton="false" 
+    showFooter="true" 
+    class="sapUiSizeCompact">
         <uxap:headerTitle>
-            <uxap:ObjectPageHeader objectTitle="Dayan" objectSubtitle="CEO" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="true" objectImageURI="/webapp/resources/sayori.jpg">
+            <uxap:ObjectPageHeader objectTitle="{FirstName}" objectSubtitle="{JobTitle}" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="true" objectImageURI="/webapp/resources/sayori.jpg">
                 <uxap:navigationBar>
                     <Bar>
                         <contentLeft>
                             <Button type="Back" press="_onFioriObjectPageHeaderPress"/>
                         </contentLeft>
                         <contentMiddle>
-                            <Title text=""/>
+                            <Title text="{FirstName} {LastName}"/>
                         </contentMiddle>
                         <contentRight/>
                     </Bar>
@@ -41,7 +47,8 @@
             </VBox>
         </uxap:headerContent>
         <uxap:sections>
-            <uxap:ObjectPageSection title="Personal Info">
+            <uxap:ObjectPageSection
+            title="Personal Info">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection title="Personal Info">
                         <uxap:blocks>
@@ -59,7 +66,7 @@
                                                             <Label text="Lastname" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="Trabanco Perez"/>
+                                                            <ObjectStatus text="{LastName}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -67,7 +74,7 @@
                                                             <Label text="Firstname" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="Dayan"/>
+                                                            <ObjectStatus text="{FirstName}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -75,7 +82,7 @@
                                                             <Label text="Email" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="dayan.trabanco.perez@student.ehb.be"/>
+                                                            <ObjectStatus text="{Email}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -83,7 +90,7 @@
                                                             <Label text="Phone number" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="0497256481"/>
+                                                            <ObjectStatus text="{PhoneNumber}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -91,7 +98,7 @@
                                                             <Label text="Job title" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <Text text="Manager" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="{JobTitle}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                 </form:formElements>
@@ -259,7 +266,7 @@
             </uxap:ObjectPageSection>
         </uxap:sections>
         <uxap:footer>
-            <OverflowToolbar design="auto">
+            <OverflowToolbar design="Auto">
                 <content>
                     <ToolbarSpacer/>
                     <Button text="Return to homepage" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>

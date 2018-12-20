@@ -186,7 +186,7 @@
 			},
 			"routes": [
 				{
-					"pattern": "ProjectDetail/:context:",
+					"pattern": "ProjectDetail/{projId}",
 					"name": "ProjectDetail",
 					"target": [
 						"ProjectDetail"
@@ -200,7 +200,7 @@
 					]
 				},
 				{
-					"pattern": "WerknemerDetail/:context:",
+					"pattern": "WerknemerDetail/{Id}",
 					"name": "WerknemerDetail",
 					"target": [
 						"WerknemerDetail"

@@ -9,7 +9,24 @@ sap.ui.define(["../controller/BaseController",
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers", {
-		handleRouteMatched: function(oEvent) {
+			_onRowPress1 : function(oEvent){
+			var oItem, oCtx;
+			oItem = oEvent.getSource();
+			oCtx = oItem.getBindingContext();
+			this.getRouter().navTo("WerknemerDetail",{
+				Id : oCtx.getProperty("Id")
+			});
+		},
+		_onRowPress : function(oEvent){
+			var oItem, oCtx;
+			oItem = oEvent.getSource();
+			oCtx = oItem.getBindingContext();
+			this.getRouter().navTo("ProjectDetail",{
+				projId : oCtx.getProperty("Id")
+			});
+		},
+		
+		/*handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 
 			var oParams = {};
@@ -44,7 +61,7 @@ sap.ui.define(["../controller/BaseController",
 				this.getView().bindObject(oPath);
 			}
 
-		},
+		},*/
 		_onOverflowToolbarButtonPress: function() {
 
 			var sDialogName = "CreateProject";
@@ -61,21 +78,9 @@ sap.ui.define(["../controller/BaseController",
 			oDialog.open();
 
 		},
-		_onRowPress: function(oEvent) {
-
-			var oBindingContext = oEvent.getSource().getBindingContext();
-
-			return new Promise(function(fnResolve) {
-
-				this.doNavigate("ProjectDetail", oBindingContext, fnResolve, "");
-			}.bind(this)).catch(function(err) {
-				if (err !== undefined) {
-					MessageBox.error(err.message);
-				}
-			});
-
-		},
-		doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
+		
+			
+	/*	doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
 			var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
 			var oModel = (oBindingContext) ? oBindingContext.getModel() : null;
 
@@ -128,7 +133,7 @@ sap.ui.define(["../controller/BaseController",
 				fnPromiseResolve();
 			}
 
-		},
+		},*/
 		_onOverflowToolbarButtonPress1: function() {
 
 			var sDialogName = "WerknemerCreate";
@@ -145,8 +150,20 @@ sap.ui.define(["../controller/BaseController",
 			oDialog.open();
 
 		},
-		_onRowPress1: function(oEvent) {
+	/*	_onRowPress: function(oEvent) {
+			var oBindingContext = oEvent.getSource().getBindingContext();
 
+			return new Promise(function(fnResolve) {
+
+				this.doNavigate("ProjectDetail", oBindingContext, fnResolve, "");
+			}.bind(this)).catch(function(err) {
+				if (err !== undefined) {
+					MessageBox.error(err.message);
+				}
+			});
+
+		},
+		_onRowPress1: function(oEvent) {
 			var oBindingContext = oEvent.getSource().getBindingContext();
 
 			return new Promise(function(fnResolve) {
@@ -157,13 +174,12 @@ sap.ui.define(["../controller/BaseController",
 					MessageBox.error(err.message);
 				}
 			});
-
-		},
-		
-		onInit: function() {
-			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("ProjectenEnWerknemers").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 			
+		},
+	*/
+		onInit: function() {
+		/*	this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			this.oRouter.getTarget("ProjectenEnWerknemers").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));*/
 					var oViewModel,
 					iOriginalBusyDelay,
 					oTable = this.byId("table_emp");
@@ -224,6 +240,5 @@ sap.ui.define(["../controller/BaseController",
 				}
 				this.getModel("worklistView").setProperty("/ProjTableTitle", sTitle);
 			}
-		
 	});
 }, /* bExport= */ true);

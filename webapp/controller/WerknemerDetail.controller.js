@@ -1,13 +1,44 @@
-sap.ui.define(["sap/ui/core/mvc/Controller",
+sap.ui.define([
+	"../controller/BaseController",
+	// "sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./WerknemerEdit", "./CreateEvaluation", "./WerknemerCreate",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, WerknemerEdit, CreateEvaluation, WerknemerCreate, Utilities, History) {
+	"sap/ui/core/routing/History",
+		"sap/ui/model/json/JSONModel"
+], function(BaseController, MessageBox, WerknemerEdit, CreateEvaluation, WerknemerCreate, Utilities, History, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.WerknemerDetail", {
-		handleRouteMatched: function(oEvent) {
+			onInit: function () {
+			var oRouter = this.getRouter();
+			oRouter.getRoute("WerknemerDetail").attachMatched(this._onRouteMatched, this);
+		},
+		_onRouteMatched : function (oEvent) {
+			var oArgs, oView;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+
+			oView.bindElement({
+				path : "/yxm_110_empcdsSet(" + oArgs.Id + ")",
+				events : {
+					change: this._onBindingChange.bind(this),
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			});
+		},
+		_onBindingChange : function (oEvent) {
+			// No data for the binding
+			if (!this.getView().getBindingContext()) {
+				this.getRouter().getTargets().display("notFound");
+			}
+		},
+		/*handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 
 			var oParams = {};
@@ -42,7 +73,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject(oPath);
 			}
 
-		},
+		},*/
 		_onFioriObjectPageHeaderPress: function() {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
@@ -155,7 +186,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					oModel.createBindingContext(sNavigationPropertyName, oBindingContext, null, function(bindingContext) {
 						if (bindingContext) {
 							sPath = bindingContext.getPath();
-							if (sPath.substring(0, 1) === "/") {
+							if (sPath.substring(0, 1) === "/yxm_110_empcdsSet") {
 								sPath = sPath.substring(1);
 							}
 						} else {
@@ -226,10 +257,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			});
 
 		},
-		onInit: function() {
+	/*	onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("WerknemerDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-			
-		}
+		}*/
 	});
 }, /* bExport= */ true);

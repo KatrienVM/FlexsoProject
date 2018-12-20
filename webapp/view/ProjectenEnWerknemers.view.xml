@@ -1,5 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers" xmlns="sap.m" xmlns:layout1="sap.ui.commons.layout">
-    <Page showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
+    <Page 
+		showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
         <content>
             <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
                 <layout1:positions>
@@ -12,7 +13,11 @@
                                             <Table
                                             	 id="table_proj" 
                                         			items="{
-													path: 'Proj>/YXM_089_PROJODATASet'
+													path: 'Proj>/YXM_089_PROJODATASet',
+													sorter: {
+														path: 'ProjectName',
+														descending: false
+														}
 													}"
 													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
 													updateFinished="onUpdateFinished1"
@@ -81,7 +86,11 @@
                                         <content>
                                             <Table id="table_emp" 
                                         			items="{
-													path: '/yxm_110_empcdsSet'
+													path: '/yxm_110_empcdsSet',
+													sorter: {
+														path: 'FirstName',
+														descending: false
+														}
 													}"
 													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
 													updateFinished="onUpdateFinished"
