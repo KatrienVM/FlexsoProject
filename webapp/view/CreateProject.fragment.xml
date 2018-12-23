@@ -7,17 +7,20 @@
                 <items>
                     <InputListItem label="Project name" visible="true">
                         <content>
-                            <Input value="" placeholder="Project Name" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                            <Input placeholder="Project Name" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"
+                            value="{ path: 'ProjectName', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:100, nullable:false } }"/>
                         </content>
                     </InputListItem>
                     <InputListItem label="Start date" visible="true">
                         <content>
-                            <Input placeholder="" type="Date" showValueHelp="false" enabled="true" visible="true" width="177.42857360839844px" valueHelpOnly="false" maxLength="0"/>
+                            <DatePicker placeholder="" enabled="true" visible="true" width="177.42857360839844px"
+                            value="{ path: 'StartDate', type: 'sap.ui.model.type.DateTime'}"/>
                         </content>
                     </InputListItem>
                     <InputListItem label="End date" visible="true">
                         <content>
-                            <Input placeholder="" type="Date" showValueHelp="false" enabled="true" visible="true" width="177.42857360839844px" valueHelpOnly="false" maxLength="0"/>
+                            <DatePicker placeholder="" enabled="true" visible="true" width="177.42857360839844px"
+                            value="{ path: 'EndDate', type: 'sap.ui.model.type.DateTime'}"/>
                         </content>
                     </InputListItem>
                     <InputListItem label="Category" visible="true">
@@ -54,7 +57,7 @@
         </content>
         <beginButton/>
         <buttons>
-            <Button text="Save" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+            <Button text="Save" enabled="{viewModel>/enableCreate}" type="Default" iconFirst="true" width="auto" visible="true" iconDensityAware="false" press="_onButtonPress"/>
             <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
         </buttons>
         <customHeader/>

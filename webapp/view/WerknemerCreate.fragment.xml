@@ -7,7 +7,8 @@
                 <items>
                     <InputListItem label="Firstname" visible="true">
                         <content>
-                            <Input placeholder="Firstname" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                            <Input placeholder="Firstname" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"
+                            value="{ path: 'FirstName', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:100, nullable:false } }"/>
                         </content>
                     </InputListItem>
                     <InputListItem label="Lastname" visible="true">
@@ -76,8 +77,8 @@
         </content>
         <beginButton/>
         <buttons>
-            <Button text="Create" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
-            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+            <Button text="Create" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onCreate"/>
+            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onCancel"/>
         </buttons>
         <customHeader/>
         <endButton/>

@@ -20,7 +20,7 @@ sap.ui.define([
 			oView = this.getView();
 
 			oView.bindElement({
-				path : "/yxm_110_empcdsSet(" + oArgs.Id + ")",
+				path : "/inhabSet(" + oArgs.Id + ")",
 				events : {
 					change: this._onBindingChange.bind(this),
 					dataRequested: function (oEvent) {
@@ -244,12 +244,11 @@ sap.ui.define([
 
 		},
 		_onButtonPress: function(oEvent) {
-
 			var oBindingContext = oEvent.getSource().getBindingContext();
-
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			return new Promise(function(fnResolve) {
 
-				this.doNavigate("ProjectenEnWerknemers", oBindingContext, fnResolve, "");
+				oRouter.navTo("ProjectenEnWerknemers", oBindingContext, fnResolve, "");
 			}.bind(this)).catch(function(err) {
 				if (err !== undefined) {
 					MessageBox.error(err.message);

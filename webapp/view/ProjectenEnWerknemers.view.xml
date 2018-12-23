@@ -13,7 +13,7 @@
                                             <Table
                                             	 id="table_proj" 
                                         			items="{
-													path: 'Proj>/YXM_089_PROJODATASet',
+													path: '/projSet',
 													sorter: {
 														path: 'ProjectName',
 														descending: false
@@ -71,9 +71,9 @@
                                                 <items>
                                                     <ColumnListItem type="Navigation" press="_onRowPress">
                                                         <cells>
-                                                            <Text text="{Proj>ProjectName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <DatePicker value="{Proj>StartDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
-                                                            <DatePicker value="{Proj>EndDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <Text text="{ProjectName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <DatePicker value="{StartDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <DatePicker value="{EndDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
                                                             <ObjectStatus text="Complete" state="Success" visible="true"/>
                                                         </cells>
                                                     </ColumnListItem>
@@ -86,7 +86,7 @@
                                         <content>
                                             <Table id="table_emp" 
                                         			items="{
-													path: '/yxm_110_empcdsSet',
+													path: '/empSet',
 													sorter: {
 														path: 'FirstName',
 														descending: false

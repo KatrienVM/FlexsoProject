@@ -110,7 +110,7 @@
                                                             <Label text="Street" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="Anemonengaarde 9"/>
+                                                            <ObjectStatus text="{Street} {HouseNr} {BoxNr}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -118,7 +118,7 @@
                                                             <Label text="Postal code" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="1700"/>
+                                                            <ObjectStatus text="{PostalCode}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -126,7 +126,7 @@
                                                             <Label text="City" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="Dilbeek"/>
+                                                            <ObjectStatus text="{City}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -134,7 +134,7 @@
                                                             <Label text="Country" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="België"/>
+                                                            <ObjectStatus text="{Country}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                 </form:formElements>

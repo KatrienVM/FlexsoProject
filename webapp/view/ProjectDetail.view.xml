@@ -1,14 +1,14 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectDetail" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
     <uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="true" class="sapUiSizeCompact">
         <uxap:headerTitle>
-            <uxap:ObjectPageHeader objectTitle="{Proj>ProjectName}" objectSubtitle="This is a test project" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="false">
+            <uxap:ObjectPageHeader objectTitle="{ProjectName}" objectSubtitle="{Description}" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="false">
                 <uxap:navigationBar>
                     <Bar>
                         <contentLeft>
                             <Button type="Back" press="_onFioriObjectPageHeaderPress"/>
                         </contentLeft>
                         <contentMiddle>
-                            <Title text="{Proj>ProjectName}"/>
+                            <Title text="{ProjectName}"/>
                         </contentMiddle>
                         <contentRight/>
                     </Bar>
@@ -53,7 +53,7 @@
                                                             <Label text="Description" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <ObjectStatus text="This is a test project."/>
+                                                            <ObjectStatus text="{Description}"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -61,7 +61,7 @@
                                                             <Label text="Start date" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <DatePicker value="20181126" width="150.00000000px" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <DatePicker value="{StartDate}" width="200.00000000px" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
                                                         </form:fields>
                                                     </form:FormElement>
                                                     <form:FormElement>
@@ -69,17 +69,10 @@
                                                             <Label text="End date" required="false"/>
                                                         </form:label>
                                                         <form:fields>
-                                                            <DatePicker value="20181130" width="150.00000000px" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
+                                                            <DatePicker value="{EndDate}" width="200.00000000px" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
                                                         </form:fields>
                                                     </form:FormElement>
-                                                    <form:FormElement>
-                                                        <form:label>
-                                                            <Label text="Category" required="false"/>
-                                                        </form:label>
-                                                        <form:fields>
-                                                            <ObjectStatus text="Testing"/>
-                                                        </form:fields>
-                                                    </form:FormElement>
+                                                  
                                                 </form:formElements>
                                             </form:FormContainer>
                                         </form:formContainers>
@@ -94,7 +87,8 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection title="Team">
                         <uxap:blocks>
-                            <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                            <Table 
+                            width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
                                 <infoToolbar>
                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                                         <content>
@@ -134,9 +128,9 @@
                                 <items>
                                     <ColumnListItem type="Navigation" press="_onRowPress">
                                         <cells>
-                                            <Text text="Dayan" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                            <Text text="Trabanco" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                            <Text text="Developer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{FirstName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{LastName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{RoleName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                         </cells>
                                     </ColumnListItem>
                                 </items>

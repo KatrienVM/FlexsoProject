@@ -9,12 +9,12 @@
 			"version": "1.2.2"
 		},
 		"dataSources": {
-			"YXM_110_MEA_EMP_SRV": {
-				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_110_MEA_EMP_SRV/",
+			"YXM_110_MEA_EMP_SRV_01": {
+				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_110_MEA_EMP_SRV_01/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/YXM_110_MEA_EMP_SRV/metadata.xml",
+					"localUri": "localService/YXM_110_MEA_EMP_SRV_01/metadata.xml",
 					"annotations": []
 				}
 			},
@@ -40,6 +40,14 @@
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/YXM_110_MEA_EVAL_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_EMPADDR_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMPADDR_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EMPADDR_SRV/metadata.xml"
 				}
 			}
 		},
@@ -93,14 +101,14 @@
 				"uri": "i18n/i18n.properties"
 			},
 			"": {
-				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_110_MEA_EMP_SRV/",
+				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_110_MEA_EMP_SRV_01/",
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
 					"defaultBindingMode": "OneWay",
 					"defaultCountMode": "Request"
 				},
-				"dataSource": "YXM_110_MEA_EMP_SRV",
+				"dataSource": "YXM_110_MEA_EMP_SRV_01",
 				"preload": true
 			},
 			"Proj": {
@@ -134,6 +142,16 @@
 					"defaultCountMode": "Request"
 				},
 				"dataSource": "YXM_110_MEA_EVAL_SRV",
+				"preload": true
+			},
+			"Emp": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_EMPADDR_SRV",
 				"preload": true
 			}
 		},

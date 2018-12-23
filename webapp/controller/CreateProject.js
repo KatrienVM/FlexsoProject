@@ -83,7 +83,7 @@ sap.ui.define([
 								var sNewContext = oModel.getKey(oChangeResponse.data);
 								oView.unbindObject();
 								oView.bindObject({
-									path: "/" + sNewContext
+									path: "/YXM_089_PROJODATASet" + sNewContext
 								});
 								if (window.history && window.history.replaceState) {
 									window.history.replaceState(undefined, undefined, window.location.hash.replace(encodeURIComponent(oController.sContext), encodeURIComponent(sNewContext)));

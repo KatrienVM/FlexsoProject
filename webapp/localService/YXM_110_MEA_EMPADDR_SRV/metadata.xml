@@ -1,0 +1,35 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="en"
+			sap:schema-version="1" Namespace="YXM_110_MEA_EMPADDR_SRV">
+			<EntityType sap:content-version="1" sap:semantics="subscriptions" Name="Subscription">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Sub. ID" MaxLength="32" Nullable="false"
+					Type="Edm.String"/><Property Name="user" sap:filterable="false" sap:creatable="false" sap:label="User Name" MaxLength="12" Type="Edm.String"
+					m:FC_KeepInContent="false" m:FC_TargetPath="SyndicationAuthorName"/><Property Name="updated" sap:filterable="false" sap:creatable="false" sap:label="Time Stamp" Type="Edm.DateTime" m:FC_KeepInContent="false"
+					m:FC_TargetPath="SyndicationUpdated" Precision="0"/><Property Name="title" sap:filterable="false" sap:label="Title" MaxLength="255" Type="Edm.String" m:FC_KeepInContent="false"
+					m:FC_TargetPath="SyndicationTitle"/><Property Name="deliveryAddress" sap:filterable="false" sap:label="Delivery Address" Type="Edm.String"/><Property Name="persistNotifications" sap:filterable="false" sap:label="Persist Notification" Type="Edm.Boolean"/><Property Name="collection" sap:filterable="false" sap:label="Collection" MaxLength="40" Type="Edm.String"/><Property Name="filter" sap:filterable="false" sap:label="Filter" Type="Edm.String"/><Property Name="select" sap:filterable="false" sap:label="Select" MaxLength="255" Type="Edm.String"/><Property Name="changeType" sap:label="Change Type" MaxLength="30" Type="Edm.String"/></EntityType>
+			<EntityType sap:content-version="1" sap:semantics="notifications" Name="Notification">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" sap:label="Notification ID" MaxLength="32" Nullable="false" Type="Edm.String"/><Property Name="collection" sap:label="Collection" MaxLength="40" Type="Edm.String"/><Property Name="title" sap:label="Notif. Text" Type="Edm.String" m:FC_KeepInContent="false" m:FC_TargetPath="SyndicationTitle"/><Property Name="updated" sap:label="Time Stamp" Type="Edm.DateTime" m:FC_KeepInContent="false" m:FC_TargetPath="SyndicationUpdated"
+					Precision="0"/><Property Name="changeType" sap:label="Change Type" MaxLength="30" Type="Edm.String"/><Property Name="entriesOfInterest" sap:label="No. of Entries" Type="Edm.Int32"/><Property Name="recipient" sap:updatable="false" sap:creatable="false" sap:label="Recipient" MaxLength="112" Type="Edm.String"/></EntityType>
+			<EntityType sap:content-version="1" Name="YXM_110_EMPADDRODATA">
+				<Key><PropertyRef Name="AddressId"/><PropertyRef Name="EmployeeId"/></Key><Property Name="AddressId" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Number" Nullable="false"
+					Type="Edm.Int32" sap:sortable="false"/><Property Name="EmployeeId" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Number" Nullable="false"
+					Type="Edm.Int32" sap:sortable="false"/><Property Name="FirstName" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="LastName" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="PhoneNumber" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Char15" MaxLength="15"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="Email" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="E-Mail Address" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="JobTitle" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="Street" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="HouseNr" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Char20" MaxLength="20"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="BoxNr" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Char20" MaxLength="20" Nullable="false"
+					Type="Edm.String" sap:sortable="false"/><Property Name="PostalCode" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Char20" MaxLength="20"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="City" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="Province" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/><Property Name="Country" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Character 100" MaxLength="100"
+					Nullable="false" Type="Edm.String" sap:sortable="false"/></EntityType>
+			<EntityContainer Name="YXM_110_MEA_EMPADDR_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true"><EntitySet sap:content-version="1" Name="SubscriptionCollection" EntityType="YXM_110_MEA_EMPADDR_SRV.Subscription"/><EntitySet sap:content-version="1" Name="NotificationCollection" sap:updatable="false" sap:creatable="false"
+				EntityType="YXM_110_MEA_EMPADDR_SRV.Notification" sap:addressable="false" sap:deletable="false"/><EntitySet sap:content-version="1" Name="YXM_110_EMPADDRODATASet" EntityType="YXM_110_MEA_EMPADDR_SRV.YXM_110_EMPADDRODATA"
+				sap:requires-filter="true" sap:searchable="true"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/SAP/YXM_110_MEA_EMPADDR_SRV/$metadata" rel="self"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/SAP/YXM_110_MEA_EMPADDR_SRV/$metadata" rel="latest-version"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

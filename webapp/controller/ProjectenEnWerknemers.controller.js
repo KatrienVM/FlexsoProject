@@ -19,6 +19,8 @@ sap.ui.define(["../controller/BaseController",
 		},
 		_onRowPress : function(oEvent){
 			var oItem, oCtx;
+		//this.getView().setModel(this.getOwnerComponent().getModel("Proj"));        
+		
 			oItem = oEvent.getSource();
 			oCtx = oItem.getBindingContext();
 			this.getRouter().navTo("ProjectDetail",{
