@@ -19,7 +19,7 @@ sap.ui.define([
                 onClose: function(sAction) {
                     oDisplayState.bMessageOpen = false;
                     if (sAction === MessageBox.Action.RETRY) {
-                        oModel.refreshMetadata();
+                        oModel.refreshMetadata(); 
                     }
                 }
             }

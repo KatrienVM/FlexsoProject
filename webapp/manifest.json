@@ -9,6 +9,7 @@
 			"version": "1.2.2"
 		},
 		"dataSources": {
+<<<<<<< HEAD
 			"YXM_110_MEA_EMP_SRV_01": {
 				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_110_MEA_EMP_SRV_01/",
 				"type": "OData",
@@ -48,6 +49,54 @@
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/YXM_110_MEA_EMPADDR_SRV/metadata.xml"
+=======
+			"YXM_089_MAE_PROJ_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_089_MAE_PROJ_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_089_MAE_PROJ_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_INHAB_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_INHAB_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_INHAB_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_EMP_SRV_01": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV_01/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EMP_SRV_01/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_EVAL_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EVAL_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EVAL_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_EMPADDR_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMPADDR_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EMPADDR_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_ADDR_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_ADDR_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_ADDR_SRV/metadata.xml"
+>>>>>>> refs/remotes/origin/dayan
 				}
 			}
 		},
@@ -101,6 +150,7 @@
 				"uri": "i18n/i18n.properties"
 			},
 			"": {
+<<<<<<< HEAD
 				"uri": "/SAPGateway/sap/opu/odata/sap/YXM_110_MEA_EMP_SRV_01/",
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
@@ -142,6 +192,56 @@
 					"defaultCountMode": "Request"
 				},
 				"dataSource": "YXM_110_MEA_EVAL_SRV",
+=======
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_EMP_SRV_01",
+				"preload": true
+			},
+			"Inhab": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_INHAB_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_INHAB_SRV",
+				"preload": true
+			},
+			"Proj": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_089_MAE_PROJ_SRV",
+				"preload": true
+			},
+			"Eval": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_EVAL_SRV",
+				"preload": true
+			},
+			"Addr": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_ADDR_SRV",
+>>>>>>> refs/remotes/origin/dayan
 				"preload": true
 			},
 			"Emp": {
@@ -167,9 +267,7 @@
 				"clearTarget": false,
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": [
-						"ProjectDetail"
-					]
+					"target": ["ProjectDetail"]
 				}
 			},
 			"targets": {
@@ -202,6 +300,7 @@
 					"transition": "slide"
 				}
 			},
+<<<<<<< HEAD
 			"routes": [
 				{
 					"pattern": "ProjectDetail/{Id}",
@@ -239,6 +338,29 @@
 					]
 				}
 			]
+=======
+			"routes": [{
+				"pattern": "ProjectDetail/:context:",
+				"name": "ProjectDetail",
+				"target": ["ProjectDetail"]
+			}, {
+				"pattern": "",
+				"name": "default",
+				"target": ["ProjectenEnWerknemers"]
+			}, {
+				"pattern": "WerknemerDetail/:context:",
+				"name": "WerknemerDetail",
+				"target": ["WerknemerDetail"]
+			}, {
+				"pattern": "ProjectenEnWerknemers/:context:",
+				"name": "ProjectenEnWerknemers",
+				"target": ["ProjectenEnWerknemers"]
+			}, {
+				"pattern": "EvaluationDetail/:context:",
+				"name": "EvaluationDetail",
+				"target": ["EvaluationDetail"]
+			}]
+>>>>>>> refs/remotes/origin/dayan
 		}
 	}
 }

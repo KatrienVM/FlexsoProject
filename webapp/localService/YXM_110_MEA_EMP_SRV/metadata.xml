@@ -11,6 +11,10 @@
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JobTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
 			<EntityContainer Name="YXM_110_MEA_EMP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="yxm_110_empcdsSet" EntityType="YXM_110_MEA_EMP_SRV.yxm_110_empcds" sap:searchable="true" sap:requires-filter="true"
+<<<<<<< HEAD
 				sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/sap/YXM_110_MEA_EMP_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/sap/YXM_110_MEA_EMP_SRV/$metadata"/></Schema>
+=======
+				sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV/$metadata"/></Schema>
+>>>>>>> refs/remotes/origin/dayan
 	</edmx:DataServices>
 </edmx:Edmx>

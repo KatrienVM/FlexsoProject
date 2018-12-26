@@ -80,7 +80,11 @@
 											</form:FormContainer>
 										</form:formContainers>
 									</form:Form>
+<<<<<<< HEAD
 								</layout:content>
+=======
+								</layout:content> 
+>>>>>>> refs/remotes/origin/dayan
 							</layout:Grid>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>

@@ -1,4 +1,5 @@
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+<<<<<<< HEAD
 	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData">
 	<edmx:DataServices m:DataServiceVersion="2.0">
 		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="en"
@@ -15,5 +16,22 @@
 					Nullable="false" Type="Edm.String" MaxLength="100"/></EntityType>
 			<EntityContainer Name="YXM_110_MEA_ADDR_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true"><EntitySet sap:content-version="1" Name="addressSet" sap:updatable="false" sap:creatable="false" EntityType="YXM_110_MEA_ADDR_SRV.address"
 				sap:pageable="false" sap:deletable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/sap/YXM_110_MEA_ADDR_SRV/$metadata" rel="self"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/sap/YXM_110_MEA_ADDR_SRV/$metadata" rel="latest-version"/></Schema>
+=======
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YXM_110_MEA_ADDR_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="address" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HouseNr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BoxNr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="City" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Province" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="YXM_110_MEA_ADDR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="addressSet" EntityType="YXM_110_MEA_ADDR_SRV.address" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/SAP/YXM_110_MEA_ADDR_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/SAP/YXM_110_MEA_ADDR_SRV/$metadata"/></Schema>
+>>>>>>> refs/remotes/origin/dayan
 	</edmx:DataServices>
 </edmx:Edmx>

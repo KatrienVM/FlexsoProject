@@ -1,0 +1,114 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YXM_110_MEA_EMP_SRV_01" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="emp" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Char15" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="E-Mail Address" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JobTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="inhab" Relationship="YXM_110_MEA_EMP_SRV_01.emp_inhab" FromRole="FromRole_emp_inhab" ToRole="ToRole_emp_inhab"/></EntityType>
+			<EntityType Name="proj" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ProjectName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 Characters" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="addr" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HouseNr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BoxNr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="City" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Province" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="inhabSet" Relationship="YXM_110_MEA_EMP_SRV_01.addr_inhab" FromRole="FromRole_addr_inhab"
+					ToRole="ToRole_addr_inhab"/></EntityType>
+			<EntityType Name="inhab" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeId"/></Key><Property Name="AddressId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Char15" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="E-Mail Address" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JobTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HouseNr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BoxNr" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="City" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Province" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="addr" Relationship="YXM_110_MEA_EMP_SRV_01.addr_inhab" FromRole="ToRole_addr_inhab" ToRole="FromRole_addr_inhab"/></EntityType>
+			<EntityType Name="projrol" sap:content-version="1">
+				<Key><PropertyRef Name="RoleName"/></Key><Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 Characters" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="projmem" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="E-Mail Address" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JobTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Char15" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 Characters" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Rating" Type="Edm.Byte" Nullable="false" sap:label="Int." sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Feedback" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="procat" sap:content-version="1">
+				<Key><PropertyRef Name="Name"/></Key><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 Characters" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="eval" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeId"/><PropertyRef Name="ProjectId"/></Key><Property Name="EmployeeId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Timestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Rating" Type="Edm.Byte" Nullable="false" sap:label="Int." sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="evalplus" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeId"/><PropertyRef Name="Id"/></Key><Property Name="EmployeeId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Timestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Rating" Type="Edm.Byte" Nullable="false" sap:label="Int." sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ProjectName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="emp_inhab" sap:content-version="1" sap:label="address"><End Type="YXM_110_MEA_EMP_SRV_01.emp" Multiplicity="1" Role="FromRole_emp_inhab"/><End Type="YXM_110_MEA_EMP_SRV_01.inhab" Multiplicity="*" Role="ToRole_emp_inhab"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_emp_inhab"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_emp_inhab"><PropertyRef Name="EmployeeId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="addr_inhab" sap:content-version="1"><End Type="YXM_110_MEA_EMP_SRV_01.addr" Multiplicity="1" Role="FromRole_addr_inhab"/><End Type="YXM_110_MEA_EMP_SRV_01.inhab" Multiplicity="*" Role="ToRole_addr_inhab"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_addr_inhab"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_addr_inhab"><PropertyRef Name="AddressId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="YXM_110_MEA_EMP_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="empSet" EntityType="YXM_110_MEA_EMP_SRV_01.emp" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="projSet" EntityType="YXM_110_MEA_EMP_SRV_01.proj" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="addrSet" EntityType="YXM_110_MEA_EMP_SRV_01.addr" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="inhabSet" EntityType="YXM_110_MEA_EMP_SRV_01.inhab" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="projrolSet" EntityType="YXM_110_MEA_EMP_SRV_01.projrol" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="projmemSet" EntityType="YXM_110_MEA_EMP_SRV_01.projmem" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="procatSet" EntityType="YXM_110_MEA_EMP_SRV_01.procat" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="evalSet" EntityType="YXM_110_MEA_EMP_SRV_01.eval" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="evalplusSet" EntityType="YXM_110_MEA_EMP_SRV_01.evalplus" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="emp_inhabSet" Association="YXM_110_MEA_EMP_SRV_01.emp_inhab" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="empSet" Role="FromRole_emp_inhab"/><End EntitySet="inhabSet" Role="ToRole_emp_inhab"/></AssociationSet>
+				<AssociationSet Name="addr_inhabSet" Association="YXM_110_MEA_EMP_SRV_01.addr_inhab" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="addrSet" Role="FromRole_addr_inhab"/><End EntitySet="inhabSet" Role="ToRole_addr_inhab"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV_01/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV_01/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

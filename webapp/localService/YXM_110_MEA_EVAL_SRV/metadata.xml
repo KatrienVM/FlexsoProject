@@ -1,4 +1,5 @@
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+<<<<<<< HEAD
 	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData">
 	<edmx:DataServices m:DataServiceVersion="2.0">
 		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="en"
@@ -12,5 +13,19 @@
 					Nullable="false" Type="Edm.String" MaxLength="255"/></EntityType>
 			<EntityContainer Name="YXM_110_MEA_EVAL_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true"><EntitySet sap:content-version="1" Name="evaluationsSet" sap:updatable="false" sap:creatable="false"
 				EntityType="YXM_110_MEA_EVAL_SRV.evaluations" sap:pageable="false" sap:deletable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/sap/YXM_110_MEA_EVAL_SRV/$metadata" rel="self"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/opu/odata/sap/YXM_110_MEA_EVAL_SRV/$metadata" rel="latest-version"/></Schema>
+=======
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YXM_110_MEA_EVAL_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="evaluations" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeId"/><PropertyRef Name="ProjectId"/></Key><Property Name="EmployeeId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Timestamp" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Rating" Type="Edm.Byte" Nullable="false" sap:label="Int." sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="YXM_110_MEA_EVAL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="evaluationsSet" EntityType="YXM_110_MEA_EVAL_SRV.evaluations" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/SAP/YXM_110_MEA_EVAL_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/SAP/YXM_110_MEA_EVAL_SRV/$metadata"/></Schema>
+>>>>>>> refs/remotes/origin/dayan
 	</edmx:DataServices>
 </edmx:Edmx>
