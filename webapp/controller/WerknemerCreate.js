@@ -68,7 +68,7 @@ sap.ui.define([
 			this.close();
 
 		},
-		_onButtonPress: function() {
+		_onCreate: function() {
 			var oView = this.getView();
 			var oController = this;
 
@@ -118,7 +118,7 @@ sap.ui.define([
 			});
 
 		},
-		_onButtonPress1: function(oEvent) {
+		_onCancel: function(oEvent) {
 
 			oEvent = jQuery.extend(true, {}, oEvent);
 			return new Promise(function(fnResolve) {

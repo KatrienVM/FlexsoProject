@@ -9,14 +9,6 @@
 			"version": "1.2.2"
 		},
 		"dataSources": {
-			"YXM_110_MEA_EMP_SRV": {
-				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/YXM_110_MEA_EMP_SRV/metadata.xml"
-				}
-			},
 			"YXM_089_MAE_PROJ_SRV": {
 				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_089_MAE_PROJ_SRV/",
 				"type": "OData",

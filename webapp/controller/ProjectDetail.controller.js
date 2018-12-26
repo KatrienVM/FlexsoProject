@@ -2,12 +2,71 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./ProjectEdit", "./CreateEvaluation", "./AddTeammember",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, ProjectEdit, CreateEvaluation, AddTeammember, Utilities, History) {
+	"../model/formatter",
+	"sap/ui/core/routing/History",
+		"sap/ui/model/json/JSONModel",
+], function(BaseController, MessageBox, ProjectEdit, CreateEvaluation, AddTeammember, Utilities, History, formatter, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectDetail", {
-		handleRouteMatched: function(oEvent) {
+		formatter: formatter,
+			onInit: function () {
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.getRoute("ProjectDetail").attachMatched(this._onRouteMatched, this);
+			//oRouter.getRoute("ProjectDetail").attachMatched(this._onRouteMatched1, this);
+			/*	this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			this.oRouter.getTarget("ProjectDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));*/
+			
+		},
+		_onRouteMatched : function (oEvent) {
+			var oArgs, oView;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+
+			oView.bindElement({
+				path : "/projSet(" + oArgs.Id + ")",
+				events : {
+					change: this._onBindingChange.bind(this),
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			});
+		},
+		_onBindingChange : function (oEvent) {
+			// No data for the binding
+			if (!this.getView().getBindingContext()) {
+				this.getRouter().getTargets().display("notFound");
+			}
+		},
+			_onRouteMatched1 : function (oEvent) {
+			var oArgs, oView;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+
+			oView.bindElement({
+				path : "/projmemSet(" + oArgs.ProjectId + ")",
+				events : {
+					change: this._onBindingChange1.bind(this),
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			});
+		},
+		_onBindingChange1 : function (oEvent) {
+			// No data for the binding
+			if (!this.getView().getBindingContext()) {
+				this.getRouter().getTargets().display("notFound");
+			}
+		},
+		/*handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 
 			var oParams = {};
@@ -42,9 +101,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject(oPath);
 			}
 
-		},
+		},*/
 		_onFioriObjectPageHeaderPress: function() {
-			var oHistory = History.getInstance();
+			var oHistory = sap.ui.core.routing.History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 			var oQueryParams = this.getQueryParameters(window.location);
 
@@ -117,10 +176,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		_onRowPress: function(oEvent) {
 
 			var oBindingContext = oEvent.getSource().getBindingContext();
-
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			return new Promise(function(fnResolve) {
 
-				this.doNavigate("WerknemerDetail", oBindingContext, fnResolve, "");
+				oRouter.navTo("WerknemerDetail", oBindingContext, fnResolve, "");
 			}.bind(this)).catch(function(err) {
 				if (err !== undefined) {
 					MessageBox.error(err.message);
@@ -201,10 +260,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		_onRowPress1: function(oEvent) {
 
 			var oBindingContext = oEvent.getSource().getBindingContext();
-
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			return new Promise(function(fnResolve) {
 
-				this.doNavigate("EvaluationDetail", oBindingContext, fnResolve, "");
+				oRouter.navTo("EvaluationDetail", oBindingContext, fnResolve, "");
 			}.bind(this)).catch(function(err) {
 				if (err !== undefined) {
 					MessageBox.error(err.message);
@@ -215,20 +274,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		_onButtonPress: function(oEvent) {
 
 			var oBindingContext = oEvent.getSource().getBindingContext();
-
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			return new Promise(function(fnResolve) {
 
-				this.doNavigate("ProjectenEnWerknemers", oBindingContext, fnResolve, "");
+				oRouter.navTo("ProjectenEnWerknemers", oBindingContext, fnResolve, "");
 			}.bind(this)).catch(function(err) {
 				if (err !== undefined) {
 					MessageBox.error(err.message);
 				}
 			});
-
-		},
-		onInit: function() {
-			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("ProjectDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 
 		}
 	});

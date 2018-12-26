@@ -9,7 +9,7 @@ sap.ui.define([
 		constructor: function(oView) {
 			this._oView = oView;
 			this._oControl = sap.ui.xmlfragment(oView.getId(), "com.sap.build.standard.flexsoOpdrachtMockUpFinal.view.EditEvaluation", this);
-			this._bInit = false; 
+			this._bInit = false;
 		},
 
 		exit: function() {

@@ -1,13 +1,34 @@
-sap.ui.define(["sap/ui/core/mvc/Controller",
+sap.ui.define(["../controller/BaseController",
+//sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./CreateProject", "./WerknemerCreate",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, CreateProject, WerknemerCreate, Utilities, History) {
+	"sap/ui/core/routing/History",
+		"sap/ui/model/json/JSONModel"
+], function(BaseController, MessageBox, CreateProject, WerknemerCreate, Utilities, History, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers", {
-		handleRouteMatched: function(oEvent) {
+			_onRowPress1 : function(oEvent){
+			var oItem, oCtx;
+			oItem = oEvent.getSource();
+			oCtx = oItem.getBindingContext();
+			this.getRouter().navTo("WerknemerDetail",{
+				Id : oCtx.getProperty("Id")
+			});
+		},
+		_onRowPress : function(oEvent){
+			var oItem, oCtx;
+		//this.getView().setModel(this.getOwnerComponent().getModel("Proj"));        
+		
+			oItem = oEvent.getSource();
+			oCtx = oItem.getBindingContext();
+			this.getRouter().navTo("ProjectDetail",{
+				Id : oCtx.getProperty("Id")
+			});
+		},
+		
+		/*handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 
 			var oParams = {};
@@ -42,7 +63,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject(oPath);
 			}
 
-		},
+		},*/
 		_onOverflowToolbarButtonPress: function() {
 
 			var sDialogName = "CreateProject";
@@ -59,21 +80,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			oDialog.open();
 
 		},
-		_onRowPress: function(oEvent) {
-
-			var oBindingContext = oEvent.getSource().getBindingContext();
-
-			return new Promise(function(fnResolve) {
-
-				this.doNavigate("ProjectDetail", oBindingContext, fnResolve, "");
-			}.bind(this)).catch(function(err) {
-				if (err !== undefined) {
-					MessageBox.error(err.message);
-				}
-			});
-
-		},
-		doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
+		
+			
+	/*	doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
 			var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
 			var oModel = (oBindingContext) ? oBindingContext.getModel() : null;
 
@@ -126,7 +135,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				fnPromiseResolve();
 			}
 
-		},
+		},*/
 		_onOverflowToolbarButtonPress1: function() {
 
 			var sDialogName = "WerknemerCreate";
@@ -143,8 +152,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			oDialog.open();
 
 		},
-		_onRowPress1: function(oEvent) {
+	/*	_onRowPress: function(oEvent) {
+			var oBindingContext = oEvent.getSource().getBindingContext();
 
+			return new Promise(function(fnResolve) {
+
+				this.doNavigate("ProjectDetail", oBindingContext, fnResolve, "");
+			}.bind(this)).catch(function(err) {
+				if (err !== undefined) {
+					MessageBox.error(err.message);
+				}
+			});
+
+		},
+		_onRowPress1: function(oEvent) {
 			var oBindingContext = oEvent.getSource().getBindingContext();
 
 			return new Promise(function(fnResolve) {
@@ -155,12 +176,71 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					MessageBox.error(err.message);
 				}
 			});
-
+			
 		},
+	*/
 		onInit: function() {
-			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("ProjectenEnWerknemers").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+		/*	this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			this.oRouter.getTarget("ProjectenEnWerknemers").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));*/
+					var oViewModel,
+					iOriginalBusyDelay,
+					oTable = this.byId("table_emp");
 
-		}
+				// Put down worklist table's original value for busy indicator delay,
+				// so it can be restored later on. Busy handling on the table is
+				// taken care of by the table itself.
+				iOriginalBusyDelay = oTable.getBusyIndicatorDelay();
+				// keeps the search state
+				this._aTableSearchState = [];
+
+				// Model used to manipulate control states
+				oViewModel = new JSONModel({
+					EmpTableTitle : this.getResourceBundle().getText("EmpTableTitle"),
+					ProjTableTitle : this.getResourceBundle().getText("ProjTableTitle"),
+					tableBusyDelay : 0
+				});
+				this.setModel(oViewModel, "worklistView");
+
+				// Make sure, busy indication is showing immediately so there is no
+				// break after the busy indication for loading the view's meta data is
+				// ended (see promise 'oWhenMetadataIsLoaded' in AppController)
+				oTable.attachEventOnce("updateFinished", function(){
+					// Restore original busy indicator delay for worklist's table
+					oViewModel.setProperty("/tableBusyDelay", iOriginalBusyDelay);
+				});
+		},
+		
+		onUpdateFinished : function (oEvent) {
+				// update the worklist's object counter after the table update
+				var sTitle,
+					oTable = oEvent.getSource(),
+					iTotalItems = oEvent.getParameter("total");
+				// only update the counter if the length is final and
+				// the table is not empty
+				if (iTotalItems && oTable.getBinding("items").isLengthFinal()) {
+					sTitle = this.getResourceBundle().getText("EmpTableTitleCount", [iTotalItems]);
+			
+				} else {
+					sTitle = this.getResourceBundle().getText("EmpTableTitle");
+		
+				}
+				this.getModel("worklistView").setProperty("/EmpTableTitle", sTitle);
+			},
+			
+				onUpdateFinished1 : function (oEvent) {
+				// update the worklist's object counter after the table update
+				var sTitle,
+					oTable = oEvent.getSource(),
+					iTotalItems = oEvent.getParameter("total");
+				// only update the counter if the length is final and
+				// the table is not empty
+				if (iTotalItems && oTable.getBinding("items").isLengthFinal()) {
+					sTitle = this.getResourceBundle().getText("ProjTableTitleCount", [iTotalItems]);
+				} else {
+					sTitle = this.getResourceBundle().getText("ProjTableTitle");
+
+				}
+				this.getModel("worklistView").setProperty("/ProjTableTitle", sTitle);
+			}
 	});
 }, /* bExport= */ true);

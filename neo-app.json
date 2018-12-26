@@ -26,7 +26,15 @@
         "type": "destination",
         "name": "SAPGateway"
       },
-      "description": "SAP EHB Gateway"
+      "description": "SAPGateway"
+    },
+    {
+      "path": "/Proj",
+      "target": {
+        "type": "destination",
+        "name": "Proj"
+      },
+      "description": "Proj"
     }
   ],
   "authenticationMethod": "none",
