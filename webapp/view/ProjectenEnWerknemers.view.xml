@@ -1,5 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.flexsoOpdrachtMockUpFinal.controller.ProjectenEnWerknemers" xmlns="sap.m" xmlns:layout1="sap.ui.commons.layout">
-   <Page showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
+    <Page 
+		showHeader="false" title="Page Title" showFooter="false" showNavButton="false" enableScrolling="false">
         <content>
             <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
                 <layout1:positions>
@@ -9,12 +10,18 @@
                                 <items>
                                     <IconTabFilter icon="sap-icon://document-text" iconColor="Positive" text="Projects" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
                                         <content>
-                                            <Table id="table2" 
+                                            <Table
+                                            	 id="table_proj" 
                                         			items="{
-													path: '/YXM_089_PROJODATASet'
+													path: '/projSet',
+													sorter: {
+														path: 'ProjectName',
+														descending: false
+														}
 													}"
 													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
-													updateFinished="onUpdateFinished" width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+													updateFinished="onUpdateFinished1"
+                                            width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
                                                 <infoToolbar>
                                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                                                         <content>
@@ -25,7 +32,7 @@
                                                 <headerToolbar>
                                                     <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
                                                         <content>
-                                                            <Title text="Projects (2)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <Title id="tableHead" text="{worklistView>/ProjTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
                                                             <ToolbarSpacer width=""/>
                                                             <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
                                                             <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
@@ -67,7 +74,7 @@
                                                             <Text text="{ProjectName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                             <DatePicker value="{StartDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
                                                             <DatePicker value="{EndDate}" width="auto" displayFormat="medium" enabled="false" visible="true" valueFormat="yyyyMMdd"/>
-                                                            
+                                                            <ObjectStatus text="Complete" state="Success" visible="true"/>
                                                         </cells>
                                                     </ColumnListItem>
                                                </items>
@@ -77,9 +84,13 @@
                                     <IconTabSeparator icon="" iconDensityAware="false"/>
                                     <IconTabFilter icon="sap-icon://wounds-doc" iconColor="Positive" text="employees" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
                                         <content>
-                                            <Table id="table" 
+                                            <Table id="table_emp" 
                                         			items="{
-													path: 'Emp>/yxm_110_empcdsSet'
+													path: '/empSet',
+													sorter: {
+														path: 'FirstName',
+														descending: false
+														}
 													}"
 													busyIndicatorDelay="{worklistView>/tableBusyDelay}"
 													updateFinished="onUpdateFinished"
@@ -94,7 +105,7 @@
                                                 <headerToolbar>
                                                     <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
                                                         <content>
-                                                            <Title id="tableHeader" text="{worklistView>/worklistTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                            <Title id="tableHeader" text="{worklistView>/EmpTableTitle}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
                                                             <ToolbarSpacer width=""/>
                                                             <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
                                                             <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" tooltip="Sort" iconDensityAware="false"/>
@@ -126,10 +137,10 @@
                                                 </columns>
                                                 <items>
                                                     <ColumnListItem type="Navigation" press="_onRowPress1">
-                                                        <cells> 
-                                                            <Text text="{Emp>FirstName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="{Emp>LastName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                                                            <Text text="{Emp>JobTitle}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                        <cells>
+                                                            <Text text="{FirstName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="{LastName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                            <Text text="{JobTitle}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                         </cells>
                                                     </ColumnListItem>
                                         		</items>

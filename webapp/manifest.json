@@ -32,6 +32,38 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/YXM_110_MEA_INHAB_SRV/metadata.xml"
 				}
+			},
+			"YXM_110_MEA_EMP_SRV_01": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMP_SRV_01/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EMP_SRV_01/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_EVAL_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EVAL_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EVAL_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_EMPADDR_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_EMPADDR_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_EMPADDR_SRV/metadata.xml"
+				}
+			},
+			"YXM_110_MEA_ADDR_SRV": {
+				"uri": "/SAPGateway/sap/opu/odata/SAP/YXM_110_MEA_ADDR_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/YXM_110_MEA_ADDR_SRV/metadata.xml"
+				}
 			}
 		},
 		"title": "{{appTitle}}",
@@ -90,17 +122,7 @@
 					"defaultBindingMode": "OneWay",
 					"defaultCountMode": "Request"
 				},
-				"dataSource": "YXM_089_MAE_PROJ_SRV",
-				"preload": true
-			},
-			"Emp": {
-				"type": "sap.ui.model.odata.v2.ODataModel",
-				"settings": {
-					"defaultOperationMode": "Server",
-					"defaultBindingMode": "OneWay",
-					"defaultCountMode": "Request"
-				},
-				"dataSource": "YXM_110_MEA_EMP_SRV",
+				"dataSource": "YXM_110_MEA_EMP_SRV_01",
 				"preload": true
 			},
 			"Inhab": {
@@ -112,6 +134,46 @@
 					"defaultCountMode": "Request"
 				},
 				"dataSource": "YXM_110_MEA_INHAB_SRV",
+				"preload": true
+			},
+			"Proj": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_089_MAE_PROJ_SRV",
+				"preload": true
+			},
+			"Eval": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_EVAL_SRV",
+				"preload": true
+			},
+			"Addr": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_ADDR_SRV",
+				"preload": true
+			},
+			"Emp": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YXM_110_MEA_EMPADDR_SRV",
 				"preload": true
 			}
 		},
@@ -127,9 +189,7 @@
 				"clearTarget": false,
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": [
-						"ProjectDetail"
-					]
+					"target": ["ProjectDetail"]
 				}
 			},
 			"targets": {
@@ -162,43 +222,27 @@
 					"transition": "slide"
 				}
 			},
-			"routes": [
-				{
-					"pattern": "ProjectDetail/:context:",
-					"name": "ProjectDetail",
-					"target": [
-						"ProjectDetail"
-					]
-				},
-				{
-					"pattern": "",
-					"name": "default",
-					"target": [
-						"ProjectenEnWerknemers"
-					]
-				},
-				{
-					"pattern": "WerknemerDetail/:context:",
-					"name": "WerknemerDetail",
-					"target": [
-						"WerknemerDetail"
-					]
-				},
-				{
-					"pattern": "ProjectenEnWerknemers/:context:",
-					"name": "ProjectenEnWerknemers",
-					"target": [
-						"ProjectenEnWerknemers"
-					]
-				},
-				{
-					"pattern": "EvaluationDetail/:context:",
-					"name": "EvaluationDetail",
-					"target": [
-						"EvaluationDetail"
-					]
-				}
-			]
+			"routes": [{
+				"pattern": "ProjectDetail/:context:",
+				"name": "ProjectDetail",
+				"target": ["ProjectDetail"]
+			}, {
+				"pattern": "",
+				"name": "default",
+				"target": ["ProjectenEnWerknemers"]
+			}, {
+				"pattern": "WerknemerDetail/:context:",
+				"name": "WerknemerDetail",
+				"target": ["WerknemerDetail"]
+			}, {
+				"pattern": "ProjectenEnWerknemers/:context:",
+				"name": "ProjectenEnWerknemers",
+				"target": ["ProjectenEnWerknemers"]
+			}, {
+				"pattern": "EvaluationDetail/:context:",
+				"name": "EvaluationDetail",
+				"target": ["EvaluationDetail"]
+			}]
 		}
 	}
 }
