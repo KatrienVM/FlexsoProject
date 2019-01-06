@@ -64,7 +64,28 @@ sap.ui.define(["../controller/BaseController",
 			}
 
 		},*/
-		_onOverflowToolbarButtonPress: function() {
+		
+			_getFilerOptinsDialog : function () {
+       
+        // helper function is instantiating the fragment by 
+        // calling the sap.ui.xmlfragment method with the path to the fragment definition 
+        //as an argument. The function returns the instantiated controls for further use in the app
+       
+        // create dialog lazily
+            if (!this._oDialog) {
+                // create dialog via fragment factory
+            // we pass PlansOverviewPieChartController as parameter so the fragment can use it
+            // i.e. this controller has handler functions for the fragment
+               this._oDialog = sap.ui.xmlfragment("com.sap.build.standard.flexsoOpdrachtMockUpFinal.view.CreateProject", this);
+               // connect dialog to view (models, lifecycle)
+               this.getView().addDependent(this._oDialog);
+               
+            }
+                        
+            return this._oDialog;
+         },
+         
+	/*	_onOverflowToolbarButtonPress: function() {
 
 			var sDialogName = "CreateProject";
 			this.mDialogs = this.mDialogs || {};
@@ -79,7 +100,9 @@ sap.ui.define(["../controller/BaseController",
 			}
 			oDialog.open();
 
-		},
+		},*/
+		
+		
 		
 			
 	/*	doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
@@ -180,6 +203,14 @@ sap.ui.define(["../controller/BaseController",
 		},
 	*/
 		onInit: function() {
+			
+		var oIconFilter = this.getView("ProjectenEnWerknemers").byId("add");
+		var that = this;
+    	oIconFilter.attachPress(function(oEvent) {
+   
+    	that._getFilerOptinsDialog().open();
+   
+    	});
 		/*	this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("ProjectenEnWerknemers").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));*/
 					var oViewModel,

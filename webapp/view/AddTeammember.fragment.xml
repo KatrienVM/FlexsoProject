@@ -7,11 +7,17 @@
                 <items>
                     <InputListItem label="Name" visible="true">
                         <content>
-                            <ComboBox editable="true" enabled="true" visible="true" width="177.42857360839844px" valueState="None" maxWidth="100%">
+                            <ComboBox 
+                            items="{
+													path: '/empSet',
+													sorter: {
+														path: 'FirstName',
+														descending: false
+														}
+													}"
+                            editable="true" enabled="true" visible="true" width="177.42857360839844px" valueState="None" maxWidth="100%">
                                 <items>
-                                    <core:Item text="Item 1" enabled="true" key="Item 1"/>
-                                    <core:Item text="Item 2" enabled="true" key="Item 2"/>
-                                    <core:Item text="Item 3" enabled="true" key="Item 3"/>
+                                    <core:Item text="{FirstName} {LastName}" enabled="true" key="Item 1"/>
                                 </items>
                             </ComboBox>
                         </content>

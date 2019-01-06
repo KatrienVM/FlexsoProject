@@ -88,6 +88,8 @@
                     <uxap:ObjectPageSubSection title="Team">
                         <uxap:blocks>
                             <Table 
+                            id="table_projmem" items="{ path: '/projmemSet', sorter: { path: 'FirstName', descending: false } }"
+								busyIndicatorDelay="{worklistView>/tableBusyDelay}" updateFinished="onUpdateFinished"
                             width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
                                 <infoToolbar>
                                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">

@@ -13,10 +13,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.getRoute("ProjectDetail").attachMatched(this._onRouteMatched, this);
-			//oRouter.getRoute("ProjectDetail").attachMatched(this._onRouteMatched1, this);
 			/*	this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("ProjectDetail").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));*/
-			
 		},
 		_onRouteMatched : function (oEvent) {
 			var oArgs, oView;
@@ -42,30 +40,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getRouter().getTargets().display("notFound");
 			}
 		},
-			_onRouteMatched1 : function (oEvent) {
-			var oArgs, oView;
-			oArgs = oEvent.getParameter("arguments");
-			oView = this.getView();
 
-			oView.bindElement({
-				path : "/projmemSet(" + oArgs.ProjectId + ")",
-				events : {
-					change: this._onBindingChange1.bind(this),
-					dataRequested: function (oEvent) {
-						oView.setBusy(true);
-					},
-					dataReceived: function (oEvent) {
-						oView.setBusy(false);
-					}
-				}
-			});
-		},
-		_onBindingChange1 : function (oEvent) {
-			// No data for the binding
-			if (!this.getView().getBindingContext()) {
-				this.getRouter().getTargets().display("notFound");
-			}
-		},
 		/*handleRouteMatched: function(oEvent) {
 			var sAppId = "App5bfbaf5de2a527033389d9e2";
 
